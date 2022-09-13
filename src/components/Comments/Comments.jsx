@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 const Comments = () => {
     // use history to navigate between pages
     const history = useHistory();
+    //use state to target changeable value of comments
+    const [comments, setComments] = useState('');
 
     const goForward = () => {
         history.push('/review');
@@ -13,7 +15,9 @@ const Comments = () => {
 
     return (<div>
                 <h3>Any comments you want to leave?</h3>
-                <textarea>
+                <textarea
+                    value={comments}
+                    onChange={(event) => setComments(event.target.value)}>
                 </textarea>
                 <button onClick={goForward}>Next</button>
                 <button onClick={history.goBack}>Back</button>

@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 const Understanding = () => {
     // use history to navigate between pages
     const history = useHistory();
+     // use state to target changeable value of understanding
+    const [understanding, setUnderstanding] = useState(0);
 
     const goForward = () => {
         history.push('/support');
@@ -16,7 +18,9 @@ const Understanding = () => {
                 <input 
                     type="number"
                     min="1"
-                    max="5" />
+                    max="5"
+                    value={understanding}
+                    onChange={(event) => setUnderstanding(event.target.value)}  />
                 <button onClick={goForward}>Next</button>
                 <button onClick={history.goBack}>Back</button>
             </div>)
