@@ -5,10 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 const Comments = () => {
     // use history to navigate between pages
     const history = useHistory();
+     // use dispatch to report data to store
+     const dispatch = useDispatch();
     //use state to target changeable value of comments
     const [comments, setComments] = useState('');
 
-    const goForward = () => {
+    const dispatchComments = () => {
+        dispatch({type: 'dispatch_comments', payload: comments});
+        console.log('in dispatchComments. Comments are:', comments );
         history.push('/review');
     }
 
@@ -18,7 +22,7 @@ const Comments = () => {
                     value={comments}
                     onChange={(event) => setComments(event.target.value)}>
                 </textarea>
-                <button onClick={goForward}>Next</button>
+                <button onClick={dispatchComments}>Next</button>
                 <button onClick={history.goBack}>Back</button>
             </div>)
 }
