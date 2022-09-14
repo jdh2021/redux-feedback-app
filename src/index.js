@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import logger from 'redux-logger';
 import registerServiceWorker from './registerServiceWorker';
 
 // reducer receives action reported by dispatch
@@ -15,7 +16,8 @@ const feelingReducer = ( state = 0, action ) => {
 const storeInstance = createStore(
     combineReducers({
     feelingReducer
-    })
+    }),
+    applyMiddleware(logger),
 );
 
 ReactDOM.render(
