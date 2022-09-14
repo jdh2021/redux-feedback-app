@@ -5,14 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 const Success = () => {
     // use history to navigate between pages
     const history = useHistory();
+    // use dispatch to report action to store
+    const dispatch = useDispatch();
     
-    const goHome = () => {
+    const clearFeedback = () => {
+        dispatch({type: 'clear_feedback'});
         history.push('/');
     }
 
     return (<div>
             <h3>Success</h3>
-            <button onClick={goHome}>Leave more feedback</button>
+            <button onClick={clearFeedback}>Leave more feedback</button>
         </div>)
 }
     

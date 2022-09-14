@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 const Review = () => {
     // use history to navigate between pages
     const history = useHistory();
+    // use selector to retrieve data from store
+    const retrievedFeeling = useSelector(store => store.feelingReducer)
 
     const goForward = () => {
         history.push('/success');
@@ -13,7 +15,7 @@ const Review = () => {
     return (<div>
         <h3>Review</h3>
             <ul>
-                <li>Feelings: </li>
+                <li>Feelings: {retrievedFeeling} </li>
                 <li>Understanding: </li>
                 <li>Support: </li>
                 <li>Comments:</li>

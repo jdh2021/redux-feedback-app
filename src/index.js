@@ -9,10 +9,15 @@ import registerServiceWorker from './registerServiceWorker';
 
 // reducer receives action reported by dispatch
 const feelingReducer = ( state = 0, action ) => { 
+    if (action.type === 'dispatch_feeling'){
+        return action.payload;
+    } else if (action.type === 'clear_feedback') {
+        state = 0;
+    }
     return state;
 }
 
-// store to keep track of reducers
+// store keeps track of reducers
 const storeInstance = createStore(
     combineReducers({
     feelingReducer
