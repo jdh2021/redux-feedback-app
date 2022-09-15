@@ -1,23 +1,16 @@
 .App {
-  text-align: center;
+    text-align: center;
+    font-family: 'Lekton', sans-serif;
+    background-color: #d9a34b;
+    min-height: 100vh;
+
 }
 
 .App-header {
-  background-color: #033076;
-  min-height: 70px;
-  padding: 20px;
-  color: white;
-  margin-bottom: 20px;
-}
-
-.App-title {
-  font-size: 2em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-h4 {
-  font-style: italic;
+    background-color: #e3ced3;
+    min-height: 70px;
+    padding: 20px;
+    color: black;
+    margin-bottom: 15px;
+    border-bottom: 5px solid #9e2f28;
 }

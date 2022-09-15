@@ -8,29 +8,29 @@ import logger from 'redux-logger';
 import registerServiceWorker from './registerServiceWorker';
 
 // reducer receives action reported by dispatch
-const feelingReducer = ( state = '', action ) => { 
+const feelingReducer = ( state = 0, action ) => { 
     if (action.type === 'DISPATCH_FEELING'){
         return action.payload;
     } else if (action.type === 'CLEAR_FEEDBACK') {
-        state = '';
+        state = 0;
     }
     return state;
 }
 
-const understandingReducer = ( state = '', action ) => { 
+const understandingReducer = ( state = 0, action ) => { 
     if (action.type === 'DISPATCH_UNDERSTANDING'){
         return action.payload;
     } else if (action.type === 'CLEAR_FEEDBACK') {
-        state = '';
+        state = 0;
     }
     return state;
 }
 
-const supportReducer = ( state = '', action ) => { 
+const supportReducer = ( state = 0, action ) => { 
     if (action.type === 'DISPATCH_SUPPORT'){
         return action.payload;
     } else if (action.type === 'CLEAR_FEEDBACK') {
-        state = '';
+        state = 0;
     }
     return state;
 }
