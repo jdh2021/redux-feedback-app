@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,13 +6,20 @@ const Feeling = () => {
     const history = useHistory();
     // use dispatch to report data to store
     const dispatch = useDispatch();
-     // use state to target changeable value of feeling
-    const [feeling, setFeeling] = useState(0);
+    // use selector to get value of feeling from store
+    const feeling = useSelector(store => store.feelingReducer);
 
-    const dispatchFeeling = () => {
-        dispatch({type: 'dispatch_feeling', payload: feeling});
-        console.log('in dispatchFeeling. Rating is:', feeling);
-        history.push('/understanding');
+    const dispatchFeeling = (event) => {
+        dispatch({type: 'DISPATCH_FEELING', payload: event.target.value});
+        console.log('in dispatchFeeling. Rating is:', event.target.value);
+    }
+    
+    const goForward = () => {
+        if (feeling <1 || feeling >5 || feeling === '' ) {
+            alert('Please choose a whole number from 1 to 5.')
+        } else {
+            history.push('/understanding');
+        }
     }
 
     return (<div>
@@ -23,8 +29,8 @@ const Feeling = () => {
             min="1"
             max="5" 
             value={feeling}
-            onChange={(event) => setFeeling(event.target.value)}/>
-        <button onClick={dispatchFeeling}>Next</button>
+            onChange={dispatchFeeling} />
+        <button onClick={goForward}>Next</button>
     </div>)
 }
 

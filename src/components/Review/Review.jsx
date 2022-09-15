@@ -1,29 +1,50 @@
-import { useState } from 'react';
+
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 const Review = () => {
     // use history to navigate between pages
     const history = useHistory();
     // use selector to retrieve data from store
-    const retrievedFeeling = useSelector(store => store.feelingReducer);
-    const retrievedUnderstanding = useSelector(store => store.understandingReducer);
-    const retrievedSupport = useSelector(store => store.supportReducer);
-    const retrievedComments = useSelector(store => store.commentsReducer);
+    const feeling = useSelector(store => store.feelingReducer);
+    const understanding = useSelector(store => store.understandingReducer);
+    const support = useSelector(store => store.supportReducer);
+    const comments = useSelector(store => store.commentsReducer);
 
-    const goForward = () => {
-        history.push('/success');
+    const submitFeedback = () => {
+    if ( feeling <1 || feeling >5 ||
+        understanding <1 || understanding >5 ||
+        support <1 || support >5) {
+            alert('You haven\'t added the required information. Please go back and choose a number from 1 to 5 for Feeling, Understanding, and Support.')
+            return;
+        }
+        axios({
+            method: 'POST',
+            url: '/feedback',
+            data: {
+                feeling,
+                understanding,
+                support,
+                comments,
+            }
+        }).then(response => {
+            console.log('POST successful', response);
+            history.push('/success');
+        }).catch(error => {
+            console.log('There\'s an error in POST', error);
+        }) 
     }
 
     return (<div>
         <h3>Review</h3>
             <ul>
-                <li>Feelings: {retrievedFeeling} </li>
-                <li>Understanding: {retrievedUnderstanding} </li>
-                <li>Support: {retrievedSupport} </li>
-                <li>Comments: {retrievedComments}</li>
+                <li>Feelings: {feeling} </li>
+                <li>Understanding: {understanding} </li>
+                <li>Support: {support} </li>
+                <li>Comments: {comments}</li>
             </ul>
-        <button onClick={goForward}>Submit</button>
+        <button onClick={submitFeedback}>Submit</button>
         <button onClick={history.goBack}>Back</button>
     </div>)
 }

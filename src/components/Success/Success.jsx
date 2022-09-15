@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Success = () => {
     // use history to navigate between pages
@@ -9,7 +8,7 @@ const Success = () => {
     const dispatch = useDispatch();
     
     const clearFeedback = () => {
-        dispatch({type: 'clear_feedback'});
+        dispatch({type: 'CLEAR_FEEDBACK'});
         history.push('/');
     }
 

@@ -8,37 +8,37 @@ import logger from 'redux-logger';
 import registerServiceWorker from './registerServiceWorker';
 
 // reducer receives action reported by dispatch
-const feelingReducer = ( state = 0, action ) => { 
-    if (action.type === 'dispatch_feeling'){
+const feelingReducer = ( state = '', action ) => { 
+    if (action.type === 'DISPATCH_FEELING'){
         return action.payload;
-    } else if (action.type === 'clear_feedback') {
-        state = 0;
+    } else if (action.type === 'CLEAR_FEEDBACK') {
+        state = '';
     }
     return state;
 }
 
-const understandingReducer = ( state = 0, action ) => { 
-    if (action.type === 'dispatch_understanding'){
+const understandingReducer = ( state = '', action ) => { 
+    if (action.type === 'DISPATCH_UNDERSTANDING'){
         return action.payload;
-    } else if (action.type === 'clear_feedback') {
-        state = 0;
+    } else if (action.type === 'CLEAR_FEEDBACK') {
+        state = '';
     }
     return state;
 }
 
-const supportReducer = ( state = 0, action ) => { 
-    if (action.type === 'dispatch_support'){
+const supportReducer = ( state = '', action ) => { 
+    if (action.type === 'DISPATCH_SUPPORT'){
         return action.payload;
-    } else if (action.type === 'clear_feedback') {
-        state = 0;
+    } else if (action.type === 'CLEAR_FEEDBACK') {
+        state = '';
     }
     return state;
 }
 
 const commentsReducer = ( state = '', action ) => { 
-    if (action.type === 'dispatch_comments'){
+    if (action.type === 'DISPATCH_COMMENTS'){
         return action.payload;
-    } else if (action.type === 'clear_feedback') {
+    } else if (action.type === 'CLEAR_FEEDBACK') {
         state = '';
     }
     return state;
