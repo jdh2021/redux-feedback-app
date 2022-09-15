@@ -15,6 +15,7 @@ const Support = () => {
     }
 
     const goForward = () => {
+        // conditional before allowing user to proceed to comments
         if (support <1 || support >5 || support === '' ) {
             alert('Please choose a whole number from 1 to 5.')
         } else {

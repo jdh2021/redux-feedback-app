@@ -20,4 +20,18 @@ router.post('/', (req,res) => {
         })
 })
 
+// GET
+router.get('/', (req, res) => {
+    console.log('in /feedback GET');
+    const queryText = 'SELECT * from "feedback" ORDER BY "id" DESC;'
+    pool.query(queryText).then(result => {
+        console.log('GET successful');
+        res.send(result.rows);
+    })
+    .catch(error => {
+        console.log('There\'s an error in GET', error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;

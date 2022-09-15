@@ -15,6 +15,7 @@ const Feeling = () => {
     }
     
     const goForward = () => {
+        // conditional before allowing user to proceed to understanding
         if (feeling <1 || feeling >5 || feeling === '' ) {
             alert('Please choose a whole number from 1 to 5.')
         } else {

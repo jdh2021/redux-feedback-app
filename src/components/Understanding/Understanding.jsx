@@ -15,6 +15,7 @@ const Understanding = () => {
     }
     
     const goForward = () => {
+        // conditional before allowing user to proceed to support
         if (understanding <1 || understanding >5 || understanding === '' ) {
             alert('Please choose a whole number from 1 to 5.')
         } else {
