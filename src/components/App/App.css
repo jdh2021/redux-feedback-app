@@ -14,3 +14,10 @@
     margin-bottom: 15px;
     border-bottom: 5px solid #9e2f28;
 }
+
+.Comments-input {
+    font-family: 'Lekton', sans-serif;
+    outline: none;
+    background-color: #fff7c9;
+    font-size: 1rem;
+}

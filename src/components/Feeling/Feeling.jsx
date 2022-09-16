@@ -27,12 +27,15 @@ const Feeling = () => {
     
     const goForward = () => {
         // conditional before allowing user to proceed to understanding
-        if (feeling <1 || feeling >5 || feeling === '' ) {
-            alert('Please choose a whole number from 1 to 5.')
+        if (feeling < 1) {
+            alert('Please click the slider to select a number from 1 to 5.');
         } else {
             history.push('/understanding');
         }
     }
+
+    // values for MUI slider
+    const marks = [{value: 1, label: '1'}, {value: 2, label: '2'}, {value: 3, label: '3'}, {value: 4, label: '4'}, {value: 5, label: '5'}];
 
     return <Box sx={{ flexGrow: 1 }}>
         <Grid container>
@@ -46,7 +49,7 @@ const Feeling = () => {
                     <CardContent sx={{minWidth: 200, minHeight: 175, display: "flex", flexDirection: "column", justifyContent: "center"}}>
                         <h3>How are you feeling today?</h3>
                         <CardContent>
-                            <Slider className="Slider"
+                            <Slider
                                 style={{color: "#9e2f28"}}
                                 step={1}
                                 marks={marks}
