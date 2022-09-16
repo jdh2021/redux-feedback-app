@@ -21,3 +21,9 @@
     background-color: #fff7c9;
     font-size: 1rem;
 }
+
+.Review-list {
+    list-style: none;
+    text-align: left;
+}
+

@@ -3,6 +3,15 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import SendIcon from '@mui/icons-material/Send';
+
 const Review = () => {
     // use history to navigate between pages
     const history = useHistory();
@@ -15,12 +24,10 @@ const Review = () => {
      const dispatch = useDispatch();
 
     // POST request to server
-    const submitFeedback = () => {
+    const postFeedback = () => {
         // conditional in case user goes to '/review' directly in browser
-        if ( feeling <1 || feeling >5 ||
-            understanding <1 || understanding >5 ||
-            support <1 || support >5) {
-                alert('You haven\'t added the required information. Please go back and choose a number from 1 to 5 for Feeling, Understanding, and Support.')
+        if ( feeling < 1 || understanding < 1 || support < 1) {
+                alert('You\'re missing feedback. Please go back and select a number from 1 to 5 for the field(s) indicated below.')
                 return;
         }
         axios({
@@ -41,17 +48,39 @@ const Review = () => {
         }) 
     }
 
-    return (<div>
-        <h3>Review</h3>
-            <ul>
-                <li>Feeling: {feeling} </li>
-                <li>Understanding: {understanding} </li>
-                <li>Support: {support} </li>
-                <li>Comments: {comments}</li>
-            </ul>
-        <button onClick={submitFeedback}>Submit</button>
-        <button onClick={history.goBack}>Back</button>
-    </div>)
+    return <Box sx={{ flexGrow: 1 }}>
+        <Grid container>
+            <Grid item xs>
+            </Grid>
+            <Grid item xs={6}>
+                <Card 
+                    sx ={{ minWidth: 300, minHeight: 275 }}
+                    style={{backgroundColor: "#e7ccaf"}}
+                    square>
+                    <CardContent sx={{minWidth: 200, minHeight: 175, display: "flex", flexDirection: "column", justifyContent: "center"}}>
+                        <h3>Any changes before submitting?</h3>
+                        <ul className="Review-list">
+                            <li>Feeling: {feeling < 1 ? <span>Missing!</span> : <span>{feeling}</span>}</li>
+                            <li>Understanding: {understanding < 1 ? <span>Missing!</span> : <span>{understanding}</span>}</li>
+                            <li>Support: {understanding < 1 ? <span>Missing!</span> : <span>{understanding}</span>} </li>
+                            <li>Comments:</li>
+                            <li>{comments === '' ? <span>None</span> : <span>{comments}</span>}</li>
+                        </ul>
+                    </CardContent>
+                    <CardActions sx={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
+                        <Button onClick={history.goBack}>
+                            <ArrowBackIosIcon style={{color:"#642e68"}} />
+                        </Button>
+                        <Button onClick={postFeedback}>
+                            <SendIcon style={{color:"#642e68"}} />
+                        </Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+            <Grid item xs>
+            </Grid>
+        </Grid>
+    </Box>
 }
 
 export default Review;

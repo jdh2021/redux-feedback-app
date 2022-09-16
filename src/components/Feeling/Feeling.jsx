@@ -43,7 +43,7 @@ const Feeling = () => {
             </Grid>
             <Grid item xs={6}>
                 <Card 
-                    sx ={{ minWidth: 300, minHeight: 275}}
+                    sx ={{minWidth: 300, minHeight: 275}}
                     style={{backgroundColor: "#e7ccaf"}}
                     square>
                     <CardContent sx={{minWidth: 200, minHeight: 175, display: "flex", flexDirection: "column", justifyContent: "center"}}>
@@ -60,7 +60,7 @@ const Feeling = () => {
                             />
                         </CardContent>
                     </CardContent>
-                    <CardActions sx={{ display: "flex", flexDirection: "row", justifyContent: "right" }}>
+                    <CardActions sx={{display: "flex", flexDirection: "row", justifyContent: "right"}}>
                         <Button onClick={goForward}>
                             <ArrowForwardIosIcon style={{color: "#642e68"}}/>
                         </Button>
