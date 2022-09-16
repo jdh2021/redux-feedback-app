@@ -10,9 +10,8 @@ import Success from '../Success/Success';
 import Admin from '../Admin/Admin';
 
 function App() {
-  return (
-    <div className='App'>
-      <Router>
+    return (<div className="App">
+        <Router>
             <Header />
             <Route exact path ="/">
                 <Feeling />
@@ -37,7 +36,7 @@ function App() {
             </Route>
         </Router>
     </div>
-  );
+    );
 }
 
 export default App;

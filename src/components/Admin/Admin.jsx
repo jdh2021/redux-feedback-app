@@ -2,6 +2,15 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import DeleteSharpIcon from '@mui/icons-material/DeleteSharp';
+import FlagSharpIcon from '@mui/icons-material/FlagSharp';
+import OutlinedFlagSharpIcon from '@mui/icons-material/OutlinedFlagSharp';
+
 const Admin = () => {
 
     // state variables to display data on page
@@ -62,44 +71,70 @@ const Admin = () => {
         })
     };
 
-    return (<div>
-        <h3>Feedback Results</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Feeling</th>
-                    <th>Understanding</th>
-                    <th>Support</th>
-                    <th>Comments</th>
-                    <th>Delete</th>
-                    <th>Flagged</th>
-                </tr>
-            </thead>
-            <tbody>
-                {feedbackData.map((individualFeedback) => {
-                    const date = new Date (individualFeedback.date);
-                    const formattedDate = `${(date.getMonth() + 1)}.${date.getDate()}.${date.getFullYear().toLocaleString().slice(-2)}`;
-                    return <tr key={individualFeedback.id}>
-                            <td>{formattedDate}</td>
-                            <td>{individualFeedback.feeling}</td>
-                            <td>{individualFeedback.understanding}</td>
-                            <td>{individualFeedback.support}</td>
-                            <td>{individualFeedback.comments}</td>
-                            <td><button onClick={() => confirmDelete(individualFeedback.id)}>Delete</button></td>
-                            <td>
-                                { individualFeedback.flagged ? 
-                                <button onClick={() => flagFeedback(individualFeedback.id)}>Flagged</button>:
-                                <button onClick={() => flagFeedback(individualFeedback.id)}>Not flagged</button>
-                                }
-                            </td>
-                        </tr>
-                    })
-                }
-            </tbody>
-        </table>
-    </div>
-    )
+    return <Box sx={{ flexGrow: 1 }}>
+        <Grid container>
+            <Grid item xs>
+            </Grid>
+            <Grid item xs={10} sm={10} md={10} lg={8} xl={6}>
+                <Card 
+                    sx ={{ minWidth: 400}}
+                    style={{backgroundColor: "#e7ccaf"}}
+                    square>
+                    <CardContent sx={{minWidth: 300, display: "flex", flexDirection: "column", justifyContent: "center"}}>
+                        <div className="Feedback-results">
+                            <h3>Results</h3>
+                            <div className="Feedback-results">
+                                <table className="Table-results">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Feeling</th>
+                                            <th>Understanding</th>
+                                            <th>Support</th>
+                                            <th>Comments</th>
+                                            <th>Delete</th>
+                                            <th>Flag</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {feedbackData.map((individualFeedback) => {
+                                            const date = new Date (individualFeedback.date);
+                                            const formattedDate = `${(date.getMonth() + 1)}.${date.getDate()}.${date.getFullYear().toLocaleString().slice(-2)}`;
+                                            return <tr key={individualFeedback.id}>
+                                                    <td>{formattedDate}</td>
+                                                    <td>{individualFeedback.feeling}</td>
+                                                    <td>{individualFeedback.understanding}</td>
+                                                    <td>{individualFeedback.support}</td>
+                                                    <td>{individualFeedback.comments}</td>
+                                                    <td>
+                                                        <Button onClick={() => confirmDelete(individualFeedback.id)}>
+                                                            <DeleteSharpIcon style={{color:"#642e68"}}/>
+                                                        </Button>
+                                                    </td>
+                                                    <td>
+                                                        { individualFeedback.flagged ? 
+                                                        <Button onClick={() => flagFeedback(individualFeedback.id)}>
+                                                            <FlagSharpIcon style={{color: "#9e2f28"}}/>
+                                                        </Button> :
+                                                        <Button onClick={() => flagFeedback(individualFeedback.id)}>
+                                                            <OutlinedFlagSharpIcon style={{color:"#642e68"}}/>
+                                                        </Button>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            })
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item xs>
+            </Grid>
+        </Grid>
+    </Box>
 }
 
 

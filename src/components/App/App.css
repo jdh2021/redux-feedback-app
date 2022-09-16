@@ -27,3 +27,40 @@
     text-align: left;
 }
 
+.Feedback-results {
+    overflow-x: auto;
+}
+
+.Feedback-results::-webkit-scrollbar{
+    background: #e7ccaf;
+    height: 7px;
+}
+
+.Feedback-results::-webkit-scrollbar-thumb{
+    background: #d9a34b;
+    border-radius: 7px;
+}
+
+.Feedback-results::-webkit-scrollbar-thumb:hover {
+    background: #d8ad68;
+}
+
+.Table-results {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-collapse: collapse;   
+}
+
+table td + td { 
+    border-left: 1px solid black; 
+}
+
+th, td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+th {
+  padding-bottom: 10px;
+}
