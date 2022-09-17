@@ -44,7 +44,7 @@ const Review = () => {
             dispatch({type: 'CLEAR_FEEDBACK'});
             history.push('/success');
         }).catch(error => {
-            console.log('There\'s an error in POST', error);
+            alert('There\'s an error in POST');
         }) 
     }
 
@@ -58,7 +58,7 @@ const Review = () => {
                     style={{backgroundColor: "#e7ccaf"}}
                     square>
                     <CardContent sx={{minWidth: 200, minHeight: 175, display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                        <h3>Any changes before submitting?</h3>
+                        <h3>Review before submitting</h3>
                         <ul className="Review-list">
                             <li>Feeling: {feeling < 1 ? <span>Missing!</span> : <span>{feeling}</span>}</li>
                             <li>Understanding: {understanding < 1 ? <span>Missing!</span> : <span>{understanding}</span>}</li>

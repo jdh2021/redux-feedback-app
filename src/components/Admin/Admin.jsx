@@ -31,7 +31,7 @@ const Admin = () => {
             console.log('GET successful');
             setFeedbackData(response.data);
         }).catch(error => {
-            console.log('There\'s an error in GET');
+            alert('There\'s an error in GET');
         });
     }
 
@@ -53,7 +53,7 @@ const Admin = () => {
             console.log('DELETE successful');
             getFeedback();
         }).catch(error => {
-            console.log('There\'s an error in DELETE');
+            alert('There\'s an error in DELETE');
         })
     };
 
@@ -67,7 +67,7 @@ const Admin = () => {
             console.log('PUT successful');
             getFeedback();
         }).catch(error => {
-            console.log('There\'s an error in PUT');
+            alert('There\'s an error in PUT');
         })
     };
 
