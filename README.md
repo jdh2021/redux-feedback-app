@@ -7,8 +7,12 @@ thoughts & feelings is a feedback app built with React.js and Redux to collect u
 ## Demo
 
 <p align ="center">
-    <img src="">
+    <img src="redux-feedback.gif" />
 </p>
+
+## Admin View
+
+![admin](public/images/redux-admin.png)
 
 ### Prerequisites
 
@@ -29,7 +33,7 @@ thoughts & feelings is a feedback app built with React.js and Redux to collect u
 2. Type into the text area to provide optional comments. Click the arrow on the right to proceed to the review page.
 3. Review the entered values. Click the arrow on the left to go back and edit a value or comments. Click the send icon to submit feedback. 
 4. Click the pencil to leave more feeedback. You'll be routed back to `localhost:3000/#/`.
-5. Access submitted feedback at the admin page: `localhost:3000/#/admin`. Feedback can be toggled between flagged and unflagged by clicking the flag icon. The flag will be red and filled when flagged. The flag will be purple and unfilled when unflagged. Click the trash icon to delete a record. You will be prompted to confirm before deleting a feedback record.   
+5. Access submitted feedback at the admin page: `localhost:3000/#/admin`. Feedback can be toggled between flagged and unflagged by clicking the flag icon. The flag will be outlined purple by default. The flag will turn solid red when the record is flagged. Click the trash icon to delete a record. You will be prompted to confirm before deleting a record.   
 
 ## Built With
 

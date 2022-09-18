@@ -62,7 +62,7 @@ const Review = () => {
                         <ul className="Review-list">
                             <li>Feeling: {feeling < 1 ? <span>Missing!</span> : <span>{feeling}</span>}</li>
                             <li>Understanding: {understanding < 1 ? <span>Missing!</span> : <span>{understanding}</span>}</li>
-                            <li>Support: {understanding < 1 ? <span>Missing!</span> : <span>{understanding}</span>} </li>
+                            <li>Support: {support < 1 ? <span>Missing!</span> : <span>{support}</span>} </li>
                             <li>Comments:</li>
                             <li>{comments === '' ? <span>None</span> : <span>{comments}</span>}</li>
                         </ul>
