@@ -75,7 +75,7 @@ const Admin = () => {
         <Grid container>
             <Grid item xs>
             </Grid>
-            <Grid item xs={10} sm={10} md={10} lg={8} xl={6}>
+            <Grid item xs={11} sm={11} md={10} lg={8} xl={6}>
                 <Card 
                     sx ={{ minWidth: 400}}
                     style={{backgroundColor: "#e7ccaf"}}

@@ -2,13 +2,15 @@
 
 ## Description
 
-thoughts & feelings is a feedback app built with React.js and Redux to collect user input over four views. Submitted feedback is stored in a database and displayed on an admin page where it can be flagged or deleted.
+thoughts & feelings is a feedback app built with React.js and Redux to collect user input over four views. Client-side routing allows the user to move between form parts. Input is reported to reducers with useDispatch and retrieved on the Review page with useSelector before submission. Submitted feedback is stored in an SQL database and displayed on an admin page where it can be flagged or deleted.
 
 ## Demo
 
 <p align ="center">
     <img src="redux-feedback.gif" />
 </p>
+
+Try out the deployed version [here](https://redux-feedback.herokuapp.com/#/) on Heroku. 
 
 ## Admin View
 

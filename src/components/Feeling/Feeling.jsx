@@ -41,7 +41,7 @@ const Feeling = () => {
         <Grid container>
             <Grid item xs>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={8} sm={6} md={6} lg={4} xl={4}>
                 <Card 
                     sx ={{minWidth: 300, minHeight: 275}}
                     style={{backgroundColor: "#e7ccaf"}}
